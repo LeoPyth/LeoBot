@@ -5,7 +5,7 @@ let haibot = fs.readFileSync('./mp3/sound1.mp3')
 conn.sendFile(m.chat, haibot, '', '', m, true)
 }
 
-handler.customPrefix = /^(.menu|.help)$/i
+handler.customPrefix = /^(.sound1)$/i
 handler.command = new RegExp
 
 handler.limit = true
