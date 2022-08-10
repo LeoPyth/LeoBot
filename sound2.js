@@ -5,7 +5,7 @@ let hellirfaan = fs.readFileSync('./mp3/sound3.mp3')
 conn.sendFile(m.chat, hellirfaan, '', '', m, true)
 }
 
-handler.customPrefix = /^(owner|.sound2)$/i
+handler.customPrefix = /^(.sound2)$/i
 handler.command = new RegExp
 
 handler.limit = true
