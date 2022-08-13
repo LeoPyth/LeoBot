@@ -1,5 +1,7 @@
+const { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@adiwajshing/baileys')
+let fs = require('fs')
+let path = require('path')
 let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
-  let isEnable = /true|enable|(turn)?on|1/i.test(command)
   let chat = global.db.data.chats[m.chat]
   let user = global.db.data.users[m.sender]
   let set = global.db.data.settings[conn.user.jid]
@@ -20,7 +22,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       m.reply(`Emoji ini menggambarkan perasaan sukacita yang benar-benar tulus dan tidak dibuat-buat.`)
       break
     case '☺':
-      m.reply(`Emoji ini digunakan untuk menggambarkan kegembiraan dan sedang dalam suasana hati yang baik.`)
+      m.reply(m.chat, m.chat, `Emoji ini digunakan untuk menggambarkan kegembiraan dan sedang dalam suasana hati yang baik.`)
       break
     case '🥹':
       m.reply(`Emoji yang ingin menuturkan perasaan haru sampai ingin meneteskan air mata. Bisa diartikan dengan perasaan memohon dengan sungguh-sungguh.`)
@@ -79,7 +81,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
      case '💃':
      m.reply(`Emoji 💃 Perempuan Menari umumnya diilustrasikan sebagai seorang wanita yang sedang menari, dengan salah satu tangannya terangkat, memakai gaun merah, serta seperti terlihat menari salsa atau flamenco. Emoji ini juga dapat digunakan untuk mengekspresikan hal-hal yang menyenangkan atau bersifat afirmasi positif, misalnya “bagus! 💃”.`)
      break
-     case '😘'
+     case '😘':
      m.reply(`Emoji mencium dengan hembusan hati (😘) memiliki arti ciuman perpisahan, misal sebelum tidur atau perasaan cinta dan kasih sayang. Meski kerap dianggap sebagai ekspresi menggoda, tetapi emoji ini pada dasarnya dibuat untuk menunjukkan kasih sayang kepada lawan bicara (pacar),gua belike: jomblo🗿🗿.`)
      break
     case '😮':
